@@ -36,6 +36,7 @@ RUN cd $HOME/work;\
                 dash-renderer \
                 sh \
                 flask \
+                oct2py \
                 ipywidgets \
                 nbconvert \
                 jupyterlab \
