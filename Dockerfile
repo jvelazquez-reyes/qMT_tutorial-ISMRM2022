@@ -21,7 +21,22 @@ RUN apt-get update && \
         gfortran \
         cmake \
         libjpeg-dev \
-        bsdtar && \
+        bsdtar \
+        rsync \
+        imagemagick \
+        gnuplot-x11 \
+        libopenblas-base \
+        octave \
+        liboctave-dev  \
+        octave-info \
+        octave-parallel \
+        octave-struct \
+        octave-io \
+        octave-statistics \
+        octave-optim \
+        octave-image \
+        python3-dev \
+        ttf-dejavu && \
     apt-get clean && \
     apt-get autoremove && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
