@@ -55,7 +55,22 @@ RUN cd $HOME/work;\
                 scipy \
                 plotly==3.10.0 \
                 oct2py \
-                flask; \
+                dash_core_components \
+                dash_html_components \
+                dash_dangerously_set_inner_html \
+                dash-renderer \
+                sh \
+                flask \
+                ipywidgets \
+                nbconvert==5.4.0 \
+                jupyterlab>=0.35.4 \
+                pandas \
+                numpy \
+                datascience \
+                folium \
+                matplotlib \
+                sklearn \
+                nilearn ; \
     python -m sos_notebook.install;\
     git clone https://github.com/jvelazquez-reyes/qMT_tutorial-ISMRM2022.git;                \
     cd qMT_tutorial-ISMRM2022;\
