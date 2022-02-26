@@ -57,7 +57,7 @@ RUN cd $HOME/work;\
                 oct2py \
                 flask; \
     python -m sos_notebook.install;\
-    git clone --single-branch -b master https://github.com/jvelazquez-reyes/qMT_tutorial-ISMRM2022.git;                \
+    git clone https://github.com/jvelazquez-reyes/qMT_tutorial-ISMRM2022.git;                \
     cd qMT_tutorial-ISMRM2022;\
     git clone https://github.com/neuropoly/qMRLab.git;   \
     cd qMRLab; \
