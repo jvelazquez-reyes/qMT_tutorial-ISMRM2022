@@ -1,4 +1,7 @@
-function [dataSim_lineshape, dataRaw_lineshape] = sim_lineshape(lineshape)
+function [dataSim_lineshape, dataRaw_lineshape] = sim_lineshape()
+  
+lineshape = {'SuperLorentzian','Lorentzian','Gaussian'};
+
 % Define qMT Model
 Model = qmt_spgr;
 

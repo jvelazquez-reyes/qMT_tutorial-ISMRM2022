@@ -1,4 +1,7 @@
-function [dataSim_modelFit, dataRaw_modelFit] = sim_modelFit(modelFit)
+function [dataSim_modelFit, dataRaw_modelFit] = sim_modelFit()
+  
+modelFit = {'SledPikeRP','SledPikeCW','Yarnykh','Ramani'};
+
 % Define qMT Model
 Model = qmt_spgr;
 
