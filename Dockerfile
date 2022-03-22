@@ -53,6 +53,7 @@ RUN cd $HOME/work;\
                 flask \
                 oct2py \
                 ipywidgets \
+                Markdown \
                 nbconvert \
                 jupyterlab \
                 jupytext\
@@ -60,6 +61,7 @@ RUN cd $HOME/work;\
                 numpy \
                 datascience \
                 folium \
+                random2 \
                 matplotlib \
                 sklearn \
                 nilearn ; \
