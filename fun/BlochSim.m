@@ -14,7 +14,7 @@ x.T2r = 1.3e-05;
 
 % Set simulation options
 Opt.SNR = 1000;
-Opt.Method = 'Bloch equation';
+Opt.Method = 'Block equation';
 Opt.ResetMz = false;
 
 %% Varying number of pulses (Bloch Simulations)

@@ -22,24 +22,15 @@ Opt.ResetMz = false;
 
 Opt.SNR = 1000;
 for i=1:length(lineshape)
-    for j=1:10
     Model.options.Lineshape = lineshape{i};
     Smodel = equation(Model, x, Opt);
     data.MTdata = addNoise(Smodel, Opt.SNR, 'mt');
     [SimCurveResults,Protocol,data] = getSimResults(Model, x, Opt, data);
     dataSim_lineshape(:,1,i) = SimCurveResults.Offsets;
-    dataSim_lineshape(:,2,i,j) = SimCurveResults.curve(:,1);
-    dataSim_lineshape(:,3,i,j) = SimCurveResults.curve(:,2);
-    dataRaw_lineshape(:,1,i,j) = Protocol.Offsets;
-    dataRaw_lineshape(:,2,i,j) = data.MTdata;
-    end
-    
-    for k=1:22
-        dataSim_lineshape_meanstd(k,1,i) = mean(dataSim_lineshape(k,2,i,:));
-        dataSim_lineshape_meanstd(k,2,i) = std(dataSim_lineshape(k,2,i,:));
-        dataSim_lineshape_meanstd(k,3,i) = mean(dataSim_lineshape(k,3,i,:)); 
-        dataSim_lineshape_meanstd(k,4,i) = std(dataSim_lineshape(k,3,i,:));
-    end
+    dataSim_lineshape(:,2,i) = SimCurveResults.curve(:,1);
+    dataSim_lineshape(:,3,i) = SimCurveResults.curve(:,2);
+    dataRaw_lineshape(:,1,i) = Protocol.Offsets;
+    dataRaw_lineshape(:,2,i) = data.MTdata;
 end
 
 end

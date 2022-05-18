@@ -1,4 +1,7 @@
-function [b0FittedResults,b0NormFittedResults,b1FittedResults,b1NormFittedResults,r1FittedResults,r1NormFittedResults] = fit_SyntheticData(B0map,B1map,R1map)
+function [b0FittedResults,b0NormFittedResults,b1FittedResults,b1NormFittedResults,t1FittedResults,t1NormFittedResults] = fit_SyntheticData(B0map,B1map,T1map)
+
+R1map = 1./T1map;
+
 % Define qMT Model
 Model = qmt_spgr;
 
@@ -68,14 +71,14 @@ for i=1:length(R1map)
     
     fn = fieldnames(FitResults);
     for m=1:length(fn)
-        R1FitResults{i,m} = FitResults.(fn{m});
+        T1FitResults{i,m} = FitResults.(fn{m});
     end
 end
 
 %Get fitted parameters
 b1FittedResults = horzcat(B1map',[B1FitResults{:,1}]',[B1FitResults{:,2}]',[B1FitResults{:,3}]',[B1FitResults{:,4}]',[B1FitResults{:,5}]',[B1FitResults{:,6}]',[B1FitResults{:,7}]',[B1FitResults{:,8}]');
 b0FittedResults = horzcat(B0map',[B0FitResults{:,1}]',[B0FitResults{:,2}]',[B0FitResults{:,3}]',[B0FitResults{:,4}]',[B0FitResults{:,5}]',[B0FitResults{:,6}]',[B0FitResults{:,7}]',[B0FitResults{:,8}]');
-r1FittedResults = horzcat(R1map',[R1FitResults{:,1}]',[R1FitResults{:,2}]',[R1FitResults{:,3}]',[R1FitResults{:,4}]',[R1FitResults{:,5}]',[R1FitResults{:,6}]',[R1FitResults{:,7}]',[R1FitResults{:,8}]');
+t1FittedResults = horzcat(1./R1map',[T1FitResults{:,1}]',[T1FitResults{:,2}]',[T1FitResults{:,3}]',[T1FitResults{:,4}]',[T1FitResults{:,5}]',[T1FitResults{:,6}]',[T1FitResults{:,7}]',[T1FitResults{:,8}]');
 
 b1NormFittedResults(:,1) = B1map';
 b1NormFittedResults(:,2) = (b1FittedResults(:,2) - x.F)*100 / (x.F);
@@ -89,11 +92,12 @@ b0NormFittedResults(:,3) = (b0FittedResults(:,8) - x.kr*x.F)*100 / (x.kr*x.F);
 b0NormFittedResults(:,4) = (b0FittedResults(:,6) - x.T2f)*100 / (x.T2f);
 b0NormFittedResults(:,5) = (b0FittedResults(:,7) - x.T2r)*100 / (x.T2r);
 
-r1NormFittedResults(:,1) = R1map';
-r1NormFittedResults(:,2) = (r1FittedResults(:,2) - x.F)*100 / (x.F);
-r1NormFittedResults(:,3) = (r1FittedResults(:,8) - x.kr*x.F)*100 / (x.kr*x.F);
-r1NormFittedResults(:,4) = (r1FittedResults(:,6) - x.T2f)*100 / (x.T2f);
-r1NormFittedResults(:,5) = (r1FittedResults(:,7) - x.T2r)*100 / (x.T2r);
+t1NormFittedResults(:,1) = 1./R1map';
+t1NormFittedResults(:,2) = (t1FittedResults(:,2) - x.F)*100 / (x.F);
+t1NormFittedResults(:,3) = (t1FittedResults(:,8) - x.kr*x.F)*100 / (x.kr*x.F);
+t1NormFittedResults(:,4) = (t1FittedResults(:,6) - x.T2f)*100 / (x.T2f);
+t1NormFittedResults(:,5) = (t1FittedResults(:,7) - x.T2r)*100 / (x.T2r);
+
 end
 
 %% Function to get the results from the simulations varying different parameters
