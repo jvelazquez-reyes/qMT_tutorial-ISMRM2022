@@ -67,7 +67,7 @@ RUN cd $HOME/work;\
                 nilearn ; \
     git clone https://github.com/jvelazquez-reyes/qMT_tutorial-ISMRM2022.git;                \
     cd qMT_tutorial-ISMRM2022;\
-    git clone https://github.com/neuropoly/qMRLab.git;   \
+    git clone https://github.com/neuropoly/qMRLab.git;  \
     cd qMRLab; \
     git checkout d15a553f9d93457c3ed59861380852c54458c2b4; \
     cd ..; \
