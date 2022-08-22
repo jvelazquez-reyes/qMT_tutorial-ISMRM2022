@@ -65,7 +65,7 @@ RUN cd $HOME/work;\
                 matplotlib \
                 sklearn \
                 nilearn ; \
-    git clone https://github.com/jvelazquez-reyes/qMT_tutorial-ISMRM2022.git;            \
+    git clone https://github.com/jvelazquez-reyes/qMT_tutorial-ISMRM2022.git;           \
     cd qMT_tutorial-ISMRM2022;\
     git clone https://github.com/neuropoly/qMRLab.git; \
     cd qMRLab; \
